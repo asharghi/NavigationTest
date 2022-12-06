@@ -1,7 +1,11 @@
 import Vue from 'nativescript-vue'
+import Navigator from 'nativescript-vue-navigator'
+import routes from './routes'
+import App from './components/App'
 
-import Home from './components/Home'
+
+Vue.use(Navigator, { routes })
 
 new Vue({
-  render: (h) => h('frame', [h(Home)]),
+  render: (h) => h(App),
 }).$start()

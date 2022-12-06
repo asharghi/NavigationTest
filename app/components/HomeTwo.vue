@@ -5,31 +5,23 @@
     </ActionBar>
 
     <GridLayout>
-      <Label @tap="goToNextPage" class="info" text="Go to next page" />
+      <Label @tap="goToPreviousPage" class="info" text="Go back" />
     </GridLayout>
   </Page>
 </template>
-
 <script>
 export default {
   methods: {
-    goToNextPage() {
-      this.$navigator.navigate("HomeTwo", {
-        transition: "slideLeft",
+    goToPreviousPage() {
+      this.$navigator.navigate("Home", {
+        clearHistory: true,
+        transition: "slideRight",
       });
     },
   },
 };
 </script>
-
 <style scoped lang="scss">
-@import "@nativescript/theme/scss/variables/blue";
-
-// Custom styles
-.fas {
-  @include colorize($color: accent);
-}
-
 .info {
   font-size: 20;
   horizontal-align: center;
