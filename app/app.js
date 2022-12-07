@@ -1,11 +1,20 @@
 import Vue from 'nativescript-vue'
-import Navigator from 'nativescript-vue-navigator'
 import routes from './routes'
-import App from './components/App'
+import Home from './components/Home'
 
-
-Vue.use(Navigator, { routes })
+Vue.mixin({
+  methods: {
+  $goTo: function (params) {
+    this.$navigateTo(routes[params.name].component, {
+      transition: {
+        name: params.back ? "slideRight" : "slideLeft",
+      },
+      clearHistory: params.clearHistory === true
+    });
+  }
+}
+})
 
 new Vue({
-  render: (h) => h(App),
+  render: h => h('frame', [h(Home)]),
 }).$start()

@@ -5,22 +5,14 @@
     </ActionBar>
 
     <GridLayout>
-      <Label @tap="goToNextPage" class="info" text="Go to next page" />
+      <Label
+        @tap="$goTo({ name: 'HomeTwo' })"
+        class="info"
+        text="Go to next page"
+      />
     </GridLayout>
   </Page>
 </template>
-
-<script>
-export default {
-  methods: {
-    goToNextPage() {
-      this.$navigator.navigate("HomeTwo", {
-        transition: "slideLeft",
-      });
-    },
-  },
-};
-</script>
 
 <style scoped lang="scss">
 @import "@nativescript/theme/scss/variables/blue";
